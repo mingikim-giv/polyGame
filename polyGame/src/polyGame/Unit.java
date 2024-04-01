@@ -30,7 +30,7 @@ public class Unit {
 		this.power = power;
 	}
 	
-	private void attack(Unit target) {
+	public void attack(Unit target) {
 		target.hp -= power;
 		System.out.printf("[%s]가 [%s]에게 %d만큼 공격!\n", name, target.name, power);
 		
@@ -40,7 +40,7 @@ public class Unit {
 		}
 	}
 	
-	private void printData() {
+	public void printData() {
 		System.out.printf("[%s][%d/%d][%d]\n", name, hp, maxHp, power);
 	}
 }
