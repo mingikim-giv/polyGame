@@ -17,13 +17,13 @@ public class Unit {
 		this.power = power;
 	}
 	
-	private void init(int maxHp, int power) {
+	public void init(int maxHp, int power) {
 		this.maxHp = maxHp;
 		this.hp = maxHp;
 		this.power = power;
 	}
 	
-	private void init(String name, int maxHp, int power) {
+	public void init(String name, int maxHp, int power) {
 		this.name = name;
 		this.maxHp = maxHp;
 		this.hp = maxHp;
