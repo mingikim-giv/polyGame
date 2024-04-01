@@ -6,6 +6,9 @@ import java.util.Vector;
 public class StageBattle extends Stage {
 	private Random ran = new Random();
 	
+	private final int ATTACK = 1;
+	private final int SKILL = 2;
+
 	private UnitManager unitManager;
 	private Vector<Player> playList;
 	private Vector<Unit> unitList;
@@ -13,8 +16,8 @@ public class StageBattle extends Stage {
 	private int unitDie;
 	private int playerDie;
 	
-	private final int ATTACK = 1;
-	private final int SKILL = 2;
+	private boolean isRun = true;
+	private boolean isTurn = true;
 	
 	public StageBattle() {
 		unitManager = new UnitManager();
@@ -120,9 +123,40 @@ public class StageBattle extends Stage {
 		}
 		unitDie = unitList.size() - num;
 	}
+	
 	@Override
 	public boolean update() {
-		// TODO Auto-generated method stub
+		int playerIdx = 0;
+		int unitIdx = 0;
+		
+		while(isRun) {
+			if(isTurn) {
+				print();
+				if(playerIdx < playList.size()) {
+					playAttack(playerIdx);
+					playerIdx ++;
+				}
+				else {
+					isTurn = !isTurn;
+					playerIdx = 0;
+				}
+			}
+			else if(!isTurn) {
+				if(unitIdx < unitList.size()) {
+					unitAttack(unitIdx);
+					unitIdx ++;
+				}
+				else {
+					isTurn = !isTurn;
+					unitIdx = 0;
+				}
+			}
+			check();
+			if(playerDie <= 0 || unitDie <= 0) {
+				break;
+			}
+		}
+		GameManager.nextStage = "LOBBY";
 		return false;
 	}
 }
