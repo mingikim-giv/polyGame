@@ -101,6 +101,25 @@ public class StageBattle extends Stage {
 			}
 		}
 	}
+	
+	// check
+	public void check() {
+		int num = 0;
+		for(int i = 0; i < playList.size(); i ++) {
+			if(playList.get(i).hp <= 0) {
+				num ++;
+			}
+		}
+		playerDie = playList.size() - num;
+		
+		num = 0;
+		for(int i = 0; i < unitList.size(); i ++) {
+			if(unitList.get(i).hp <= 0) {
+				num ++;
+			}
+		}
+		unitDie = unitList.size() - num;
+	}
 	@Override
 	public boolean update() {
 		// TODO Auto-generated method stub
