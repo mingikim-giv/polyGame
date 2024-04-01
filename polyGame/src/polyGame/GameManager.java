@@ -8,12 +8,13 @@ import java.util.Scanner;
 public class GameManager {
 	public Random ran = new Random();
 	public static Scanner scan = new Scanner(System.in);
-	
 	public static String nextStage = "";
+	
 	public String curStage = "";
 	
 	private Map<String, Stage> list = new HashMap<String, Stage>();
 	private boolean run = true;
+	
 	
 	public GameManager() {
 		list.put("TITLE", new StageTitle());
@@ -52,6 +53,12 @@ public class GameManager {
 	}
 	
 	public void run() {
-		
+		while(true) {
+			run = changeStage();
+			if(run == false) {
+				break;
+			}
+		}
+		System.out.println("GAME OVER");
 	}
 }
