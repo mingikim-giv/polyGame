@@ -35,6 +35,22 @@ public class StageBattle extends Stage {
 		playerDie = playList.size();
 	}
 	
+	// print
+	public void print() {
+		System.out.println("=== [BATTLE] ===");
+		System.out.println("=== [PLAYER] ===");
+		
+		for(int i = 0; i < playList.size(); i ++) {
+			playList.get(i).printData();
+		}
+		
+		System.out.println("=== [MONSTER] ===");
+		
+		for(int i = 0; i < unitList.size(); i ++) {
+			unitList.get(i).printData();
+		}
+	}
+	
 	@Override
 	public boolean update() {
 		// TODO Auto-generated method stub
