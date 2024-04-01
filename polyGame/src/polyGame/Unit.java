@@ -1,10 +1,10 @@
 package polyGame;
 
 public class Unit {
-	private int hp;
-	private int maxHp;
-	private int power;
-	private String name;
+	public int hp;
+	public int maxHp;
+	public int power;
+	public String name;
 	
 	public Unit() {
 		
