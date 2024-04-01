@@ -18,7 +18,7 @@ public class UnitManager {
 		play_List.add(new Player("비숍", 700, 40));
 	}
 	
-	private void unitRanSet(int size) {
+	public void unitRanSet(int size) {
 		for(int i = 0; i < size; i ++) {
 			int num = ran.nextInt(unit.length);
 			try {
