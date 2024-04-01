@@ -1,5 +1,11 @@
 package polyGame;
 
-public class UnitDragon {
-
+public class UnitDragon extends Unit {
+	public UnitDragon() {
+		name = "혼테일";
+	}
+	
+	public void skill() {
+		System.out.println("적 한명에게 2배 데미지 시전");
+	}
 }
