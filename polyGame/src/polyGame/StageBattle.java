@@ -83,6 +83,24 @@ public class StageBattle extends Stage {
 		}
 	}
 	
+	// unitAttack
+	public void unitAttack(int index) {
+		Unit unit = unitList.get(index);
+		
+		if(unit.hp <= 0) {
+			return;
+		}
+		
+		while(true) {
+			int idx = ran.nextInt(playList.size());
+			
+			Player play = playList.get(idx);
+			if(play.hp > 0) {
+				unit.attack(play);
+				break;
+			}
+		}
+	}
 	@Override
 	public boolean update() {
 		// TODO Auto-generated method stub
