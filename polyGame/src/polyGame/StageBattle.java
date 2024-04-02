@@ -82,7 +82,14 @@ public class StageBattle extends Stage {
 			}
 		}
 		else if(sel == SKILL) {
-			
+			while(true) {
+				int idx = ran.nextInt(unitList.size());
+				
+				Unit unit = unitList.get(idx);
+				if(unit.hp > 0) {
+					
+				}
+			}
 		}
 	}
 	
