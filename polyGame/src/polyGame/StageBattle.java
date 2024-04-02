@@ -44,14 +44,14 @@ public class StageBattle extends Stage {
 	
 	// print
 	public void print() {
-		System.out.println("=== [BATTLE] ===");
-		System.out.println("=== [PLAYER] ===");
+		System.out.println("=======[BATTLE]=======");
+		System.out.println("=======[PLAYER]=======");
 		
 		for(int i = 0; i < playList.size(); i ++) {
 			playList.get(i).printData();
 		}
 		
-		System.out.println("=== [MONSTER] ===");
+		System.out.println("======[MONSTER]======");
 		
 		for(int i = 0; i < unitList.size(); i ++) {
 			unitList.get(i).printData();
@@ -66,8 +66,8 @@ public class StageBattle extends Stage {
 			return;
 		}
 		
-		System.out.println("=== [MENU] ===");
-		System.out.printf("[%s] [1]공격 [2]스킬\n", play.name);
+		System.out.println("========[MENU]========");
+		System.out.printf("[%s]|[1]공격|[2]스킬\n", play.name);
 		
 		int sel = GameManager.scan.nextInt();
 		if(sel == ATTACK) {
