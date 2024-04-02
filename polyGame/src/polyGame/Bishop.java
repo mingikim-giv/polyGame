@@ -7,7 +7,7 @@ public class Bishop extends Unit {
 		  this.name = "비숍";
 		  this.maxHp = 400;
 		  this.power = 40;
-		  Unit temp = new Unit(name, maxHp, power);
+		  Unit temp = new Unit(name, maxHp, power, new BishopSkill());
 		  return temp;
 	  }
 }
