@@ -7,6 +7,7 @@ public class UnitDragon extends Unit {
 	  this.name = "혼테일";
 	  this.maxHp = 300;
 	  this.power = 20;
+	  this.live = true;
 	  Unit temp = new Unit(name, maxHp, power, new DragonSkill());
 	  return temp;
 	}
