@@ -5,7 +5,7 @@ public class StageTitle extends Stage {
 	@Override
 	public boolean update() {
 		System.out.println("===[MAPLE DUNGEON]===");
-		System.err.println("[시작]을 입력하세요");
+		System.out.println("[시작]을 입력하세요");
 		String start = GameManager.scan.next();
 		
 		if(start.equals("시작")) {
