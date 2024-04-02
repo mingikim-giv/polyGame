@@ -8,9 +8,9 @@ import java.util.Scanner;
 public class GameManager {
 	public Random ran = new Random();
 	public static Scanner scan = new Scanner(System.in);
-	public static String nextStage = "";
+	private static String nextStage = "";
 	
-	public String curStage = "";
+	private String curStage = "";
 	
 	private Map<String, Stage> list = new HashMap<String, Stage>();
 	private boolean run = true;
