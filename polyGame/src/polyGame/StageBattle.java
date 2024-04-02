@@ -29,9 +29,6 @@ public class StageBattle extends Stage {
 	
 	// init
 	public void init() {
-		unitManager.unit_List.clear();
-		unitManager.unitRanSet(4);
-		
 		playList = null;
 		playList = unitManager.play_List;
 		
@@ -88,6 +85,7 @@ public class StageBattle extends Stage {
 				Unit unit = unitList.get(idx);
 				if(unit.hp > 0) {
 					
+					break;
 				}
 			}
 		}
