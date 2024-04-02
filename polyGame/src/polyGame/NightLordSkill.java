@@ -8,7 +8,7 @@ public class NightLordSkill extends Skill {
 		System.out.printf("%s님 %s시전\n", NightLord.instance.name, name);
 		System.out.printf("%s으로 공격 시 %s의 3배 공격\n", name, NightLord.instance.name);
 		
-		unit.hp -= Paladin.instance.power*3;
+		unit.hp -= NightLord.instance.power*3;
 		if(unit.hp <= 0) {
 			System.out.printf("%s 사망\n", unit.name);
 			unit.live = false;
