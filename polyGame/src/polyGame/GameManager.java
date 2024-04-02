@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GameManager {
-	public Random ran = new Random();
+	public static Random ran = new Random();
 	public static Scanner scan = new Scanner(System.in);
 	public static String nextStage = "";
 	
