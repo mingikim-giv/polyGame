@@ -1,11 +1,13 @@
 package polyGame;
 
 public class UnitDragon extends Unit {
-	public UnitDragon() {
-		name = "혼테일";
-	}
-	
-	public void skill() {
-		System.out.println("적 한명에게 침묵 시전");
+	public static UnitDragon instance = new UnitDragon();
+
+	public Unit add() {
+	  this.name = "혼테일";
+	  this.maxHp = 300;
+	  this.power = 20;
+	  Unit temp = new Unit(name, maxHp, power, new PaladinSkill());
+	  return temp;
 	}
 }

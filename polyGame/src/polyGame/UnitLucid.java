@@ -1,12 +1,13 @@
 package polyGame;
 
 public class UnitLucid extends Unit {
-	public UnitLucid() {
-		name = "루시드";
-	}
-
-	public void skill() {
-		System.out.println("적 전체에게 공격력의 절반 데미지 ");
-		
+	public static UnitLucid instance = new UnitLucid();
+	
+	public Unit add() {
+	  this.name = "루시드";
+	  this.maxHp = 400;
+	  this.power = 30;
+	  Unit temp = new Unit(name, maxHp, power, new PaladinSkill());
+	  return temp;
 	}
 }
