@@ -7,7 +7,7 @@ public class UnitLucid extends Unit {
 	  this.name = "루시드";
 	  this.maxHp = 400;
 	  this.power = 30;
-	  Unit temp = new Unit(name, maxHp, power, new PaladinSkill());
+	  Unit temp = new Unit(name, maxHp, power, new LucidSkill());
 	  return temp;
 	}
 }

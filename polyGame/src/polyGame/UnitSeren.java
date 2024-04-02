@@ -7,7 +7,7 @@ public class UnitSeren extends Unit {
 	  this.name = "세렌";
 	  this.maxHp = 600;
 	  this.power = 40;
-	  Unit temp = new Unit(name, maxHp, power, new PaladinSkill());
+	  Unit temp = new Unit(name, maxHp, power, new SerenSkill());
 	  return temp;
 	}
 }
