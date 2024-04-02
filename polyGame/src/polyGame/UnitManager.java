@@ -9,8 +9,8 @@ public class UnitManager {
 	public Vector<Player> play_List = new Vector<>();
 	public Vector<Unit> unit_List = new Vector<>();
 	
-	private String path = "polyGame";
-	private String unit[] = {"UnitWolf", "UnitOrc", "UnitBat", "UnitDragon"};
+	private String path = "polyGame.";
+	private String unit[] = {"UnitLucid", "UnitSeren", "UnitDragon"};
 	
 	public UnitManager() {
 		play_List.add(new Player("팔라딘", 1000, 50));

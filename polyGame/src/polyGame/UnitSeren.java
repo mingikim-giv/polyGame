@@ -1,8 +1,8 @@
 package polyGame;
 
-public class UnitOrc extends Unit {
-	public UnitOrc() {
-		name = "호브";
+public class UnitSeren extends Unit {
+	public UnitSeren() {
+		name = "세렌";
 	}
 	
 	public void skill() {

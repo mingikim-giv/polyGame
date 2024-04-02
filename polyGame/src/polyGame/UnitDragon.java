@@ -1,8 +1,8 @@
 package polyGame;
 
-public class UnitBat extends Unit {
-	public UnitBat() {
-		name = "스티지";
+public class UnitDragon extends Unit {
+	public UnitDragon() {
+		name = "혼테일";
 	}
 	
 	public void skill() {

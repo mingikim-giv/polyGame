@@ -1,11 +1,12 @@
 package polyGame;
 
 public class UnitLucid extends Unit {
-	public UnitLucid() {
+	UnitLucid() {
 		name = "루시드";
 	}
-	
-	public void skill() {
-		System.out.println("적 전체에게 공격력 두배 데미지 시전");
+
+	void skill() {
+		System.out.println("적 전체에게 공격력의 절반 데미지 ");
+
 	}
 }
