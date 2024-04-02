@@ -7,16 +7,16 @@ public class UnitManager {
 	public Random ran = new Random();
 	public static UnitManager instance = new UnitManager();
 	
-	public Vector<Player> play_List = new Vector<>();
+	public Vector<Unit> play_List = new Vector<>();
 	public Vector<Unit> unit_List = new Vector<>();
 	
 	private String path = "polyGame.";
 	private String unit[] = {"UnitLucid", "UnitSeren", "UnitDragon"};
 	
 	public UnitManager() {
-		play_List.add(new Player("팔라딘", 1000, 50));
-		play_List.add(new Player("나이트로드", 400, 100));
-		play_List.add(new Player("비숍", 700, 40));
+		play_List.add(Paladin.instance.add());
+		play_List.add(NightLord.instance.add());
+		play_List.add(Bishop.instance.add());
 	}
 	
 	public void unitRanSet(int size) {
