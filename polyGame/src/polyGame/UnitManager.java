@@ -4,7 +4,8 @@ import java.util.Random;
 import java.util.Vector;
 
 public class UnitManager {
-	private Random ran = new Random();
+	public Random ran = new Random();
+	public static UnitManager instance = new UnitManager();
 	
 	public Vector<Player> play_List = new Vector<>();
 	public Vector<Unit> unit_List = new Vector<>();
