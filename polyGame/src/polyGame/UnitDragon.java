@@ -1,11 +1,11 @@
 package polyGame;
 
-public class UnitDragon extends Unit {
-	public UnitDragon() {
-		name = "혼테일";
+public class UnitBat extends Unit {
+	public UnitBat() {
+		name = "스티지";
 	}
 	
 	public void skill() {
-		System.out.println("적 한명에게 2배 데미지 시전");
+		System.out.println("적 한명에게 침묵 시전");
 	}
 }
