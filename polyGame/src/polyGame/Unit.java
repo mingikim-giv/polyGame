@@ -5,16 +5,21 @@ public class Unit {
 	public int maxHp;
 	public int power;
 	public String name;
+	public Skill skill;
+	public boolean live = true;
+	public boolean stun;
 	
 	public Unit() {
 		
 	}
 	
-	public Unit(String name, int maxHp, int power) {
+	public Unit(String name, int maxHp, int power, Skill skill) {
 		this.name = name;
 		this.maxHp = maxHp;
 		this.hp = maxHp;
 		this.power = power;
+		this.skill = skill;
+		this.stun = false;
 	}
 	
 	public void init(int maxHp, int power) {
