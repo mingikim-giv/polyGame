@@ -5,7 +5,7 @@ public class Player extends Unit {
 		super(name, maxHp, power);
 	}
 	
-	private void skill() {
+	public void skill() {
 		
 	}
 }
