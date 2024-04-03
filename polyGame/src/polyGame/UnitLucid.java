@@ -8,22 +8,16 @@ public class UnitLucid extends Unit {
 	
 	public void skill(Unit unit) {
 		String name = "루시드의 축복🎆";
-		System.out.printf("%s가 %s공격 시전\n", this.name, name);
-		System.out.printf("%s는 루시드의 공격력만큼 한 몬스터 회복💉\n", name);
+		System.out.printf("[스킬]%s님 %s시전\n", this.name, name);
+		System.out.printf("[스킬 정보]%s으로 공격 시 %s의 2배 공격\n", name, this.power);
 		
-		if(unit.getHp() == unit.getMaxHp()) {
-			System.out.println("이미 최대 체력입니다");
-			return;
-		}
-		else {
-			unit.setHp(this.power);
+		unit.setHp(unit.getHp() - this.power*2);
+		if(unit.getHp() <= 0) {
+			unit.setHp(0);
+			System.out.printf("%s 사망\n", unit.getName());
 		}
 		
-		if((unit.getHp() + this.power) >= unit.getMaxHp()) {
-			System.out.println("최대 체력만큼 회복합니다");
-			unit.setHp(unit.getMaxHp());
-		}
-		System.out.printf("%s가 %s시전 %s님[HP:%s]", this.name, unit.getName(), unit.getHp());
+		System.out.printf("%s가 %s시전 %s[HP:%d]\n", this.name, name, unit.getName(), unit.getHp());
 		
 		try {
 			Thread.sleep(1000);
