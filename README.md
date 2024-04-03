@@ -30,7 +30,7 @@
   * README 작성
 
 ## Class Diagram (UML)
-<img src = "" width = "300px" height = "300px">
+<img src = "https://github.com/mingikim-giv/polyGame/blob/master/images/%EB%A9%94%EC%9D%B4%ED%94%8C%EB%8D%98%EC%A0%84.jpg?raw=true" width = "400px" height = "600px">
 
 ## DEMO
 <img src = "" width = "400px" height = "400px">
