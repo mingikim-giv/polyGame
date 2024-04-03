@@ -13,17 +13,17 @@ public class Play extends Unit {
 			nightLordSkill(unit);
 		}
 		else if(this.getName().equals("비숍")) {
-			bishopSkill(unit);
+			bishopSkill();
 		}
 	}
 	
 	// paladinSkill
 	private void paladinSkill(Unit unit) {
 		String name = "세이크리드 바스티온✝️";
-		System.out.printf("%s님 %s시전\n", this.name, name);
-		System.out.printf("%s으로 공격 시 %s의 2배로 공격하고 50%확률로 기절\n", name, this.name);
+		System.out.printf("[스킬]%s님 %s시전\n", this.name, name);
+		System.out.printf("[스킬 정보]%s으로 공격 시 %s의 2배로 공격 2분의1 확률로 기절\n", name, this.name);
 		
-		unit.setHp(unit.getHp()- this.getPower()*2);
+		unit.setHp(unit.getHp() - this.power*2);
 		if(unit.hp <= 0) {
 			unit.setHp(0);
 			System.out.printf("%s 사망\n", unit.getName());
@@ -32,7 +32,7 @@ public class Play extends Unit {
 		int stun = GameManager.ran.nextInt(10)+1;
 		if(stun > 5) {
 			System.out.printf("%s님의 %s명중! %s💤\n", this.name, name, unit.getName());
-			unit.stun = true;
+			unit.setStun(true);
 		}
 		else {
 			System.out.println("스킬 빗나감😞");
@@ -48,13 +48,13 @@ public class Play extends Unit {
 	// nightLordSkill
 	private void nightLordSkill(Unit unit) {
 		String name = "생사여탈";
-		System.out.printf("%s님 %s시전\n", this.name, name);
-		System.out.printf("%s으로 공격 시 %s의 3배 공격\n", name, this.name);
+		System.out.printf("[스킬]%s님 %s시전\n", this.name, name);
+		System.out.printf("[스킬 정보]%s으로 공격 시 %s의 3배 공격\n", name, this.name);
 		
 		unit.setHp(unit.getHp() - this.power*3);
 		if(unit.hp <= 0) {
 			unit.setHp(0);
-			System.out.printf("%s 사망\n", unit.name);
+			System.out.printf("%s 사망\n", unit.getName());
 		}
 		
 		System.out.printf("%s님 %s시전 %s[HP:%d]\n", this.name, name, unit.getName(), unit.getHp());
@@ -67,23 +67,25 @@ public class Play extends Unit {
 	}
 	
 	// bishopSkill
-	private void bishopSkill(Unit unit) {
+	private void bishopSkill() {
 		String name = "홀리 어드밴트💉";
-		System.out.printf("%s님 %s시전\n", this.name, name);
+		System.out.printf("[스킬]%s님 %s시전\n", this.name, name);
 		
-		if(unit.getHp() == unit.getMaxHp()) {
-			System.out.println("이미 최대 체력입니다");
-			return;
+		for(int i = 0; i < UnitManager.instance.play_List.size(); i ++) {
+			Play play = UnitManager.instance.play_List.get(i);
+			int heal = play.getHp()*50;
+			
+			if(play.getHp() == 0) {
+				return;
+			}
+			
+			if(play.getHp()+heal > play.getMaxHp()) {
+				heal = play.getMaxHp() - play.getHp();
+			}
+			
+			play.setHp(play.getHp() + heal);
+			System.out.printf("%s(이)가 %d 회복 중..❤️‍🩹\n", play.getName(), heal);
 		}
-		else {
-			unit.setHp(this.power);
-		}
-		
-		if((unit.getHp() + this.power) >= unit.getMaxHp()) {
-			System.out.println("최대 체력만큼 회복합니다");
-			unit.setHp(unit.getMaxHp());
-		}
-		System.out.printf("%s님이 %s시전하여 %s님[HP:%s]", this.name, unit.getName(), unit.getHp());
 		
 		try {
 			Thread.sleep(1000);

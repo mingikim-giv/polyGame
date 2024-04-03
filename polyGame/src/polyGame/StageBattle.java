@@ -160,6 +160,7 @@ public class StageBattle extends Stage {
 			}
 			check();
 			if(playerDie <= 0 || unitDie <= 0) {
+				System.out.println("🎉STAGE CLEAR🎉");
 				break;
 			}
 		}
