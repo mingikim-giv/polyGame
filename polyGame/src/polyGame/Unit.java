@@ -47,6 +47,10 @@ public class Unit {
 		return this.power;
 	}
 	
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+	
 	public void attack(Unit target) {
 		target.hp -= power;
 		System.out.printf("[%s]가 [%s]에게 %d만큼 공격!\n", name, target.name, power);
