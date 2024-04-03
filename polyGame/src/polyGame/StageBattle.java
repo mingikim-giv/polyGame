@@ -9,7 +9,7 @@ public class StageBattle extends Stage {
 	private final int ATTACK = 1;
 	private final int SKILL = 2;
 
-	private UnitManager unitManager;
+	private UnitManager unitManager = UnitManager.getInstance();
 	private Vector<Play> playList;
 	private Vector<Unit> unitList;
 	
@@ -20,7 +20,6 @@ public class StageBattle extends Stage {
 	private boolean isTurn = true;
 	
 	public StageBattle() {
-		unitManager = new UnitManager();
 		playList = null;
 		unitList = null;
 		unitDie = 0;
@@ -33,7 +32,7 @@ public class StageBattle extends Stage {
 		unitManager.unitRanSet(3);
 		
 		playList = null;
-		playList = unitManager.play_List;
+		playList = unitManager.getPlayers();
 		
 		unitList = null;
 		unitList = unitManager.unit_List;
@@ -62,12 +61,12 @@ public class StageBattle extends Stage {
 	public void playAttack(int index) {
 		Play play = playList.get(index);
 		
-		if(play.hp <= 0) {
+		if(play.getHp() <= 0) {
 			return;
 		}
 		
 		System.out.println("========[MENU]========");
-		System.out.printf("[%s]|[1]공격|[2]스킬\n", play.name);
+		System.out.printf("[%s]|[1]공격|[2]스킬\n", play.getName());
 		
 		int sel = GameManager.scan.nextInt();
 		if(sel == ATTACK) {
@@ -75,7 +74,7 @@ public class StageBattle extends Stage {
 				int idx = ran.nextInt(unitList.size());
 				
 				Unit unit = unitList.get(idx);
-				if(unit.hp > 0) {
+				if(unit.getHp() > 0) {
 					play.attack(unit);
 					break;
 				}
@@ -85,7 +84,7 @@ public class StageBattle extends Stage {
 			while(true) {
 				int idx = ran.nextInt(unitList.size());
 				Unit unit = unitList.get(idx);
-				if(unit.hp > 0) {
+				if(unit.getHp() > 0) {
 					play.skill(unit);
 					break;
 				}
@@ -101,7 +100,7 @@ public class StageBattle extends Stage {
 			return;
 		}
 		
-		if(unit.hp <= 0) {
+		if(unit.getHp() <= 0) {
 			return;
 		}
 		
@@ -111,7 +110,7 @@ public class StageBattle extends Stage {
 			Play play = playList.get(idx);
 			
 			if(ranAttack != 0) {
-				if(play.hp > 0) {
+				if(play.getHp() > 0) {
 					unit.attack(play);
 					break;
 				}
@@ -140,7 +139,7 @@ public class StageBattle extends Stage {
 	public void check() {
 		int num = 0;
 		for(int i = 0; i < playList.size(); i ++) {
-			if(playList.get(i).hp <= 0) {
+			if(playList.get(i).getHp() <= 0) {
 				num ++;
 			}
 		}
@@ -148,7 +147,7 @@ public class StageBattle extends Stage {
 		
 		num = 0;
 		for(int i = 0; i < unitList.size(); i ++) {
-			if(unitList.get(i).hp <= 0) {
+			if(unitList.get(i).getHp() <= 0) {
 				num ++;
 			}
 		}
