@@ -10,7 +10,7 @@ public class StageBattle extends Stage {
 	private final int SKILL = 2;
 
 	private UnitManager unitManager;
-	private Vector<Unit> playList;
+	private Vector<Play> playList;
 	private Vector<Unit> unitList;
 	
 	private int unitDie;
@@ -29,6 +29,9 @@ public class StageBattle extends Stage {
 	
 	// init
 	public void init() {
+		unitManager.unit_List.clear();
+		unitManager.unitRanSet(4);
+		
 		playList = null;
 		playList = unitManager.play_List;
 		
@@ -57,7 +60,7 @@ public class StageBattle extends Stage {
 	
 	// playAttack
 	public void playAttack(int index) {
-		Unit play = playList.get(index);
+		Play play = playList.get(index);
 		
 		if(play.hp <= 0) {
 			return;
@@ -81,10 +84,9 @@ public class StageBattle extends Stage {
 		else if(sel == SKILL) {
 			while(true) {
 				int idx = ran.nextInt(unitList.size());
-				
 				Unit unit = unitList.get(idx);
 				if(unit.hp > 0) {
-					
+					play.skill(unit);
 					break;
 				}
 			}
