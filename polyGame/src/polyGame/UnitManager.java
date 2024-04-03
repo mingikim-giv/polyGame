@@ -7,7 +7,7 @@ public class UnitManager {
 	public Random ran = new Random();
 	public static UnitManager instance = new UnitManager();
 	
-	public Vector<Unit> play_List = new Vector<>();
+	public Vector<Play> play_List = new Vector<>();
 	public Vector<Unit> unit_List = new Vector<>();
 	
 	private String path = "polyGame.";
@@ -27,8 +27,8 @@ public class UnitManager {
 				Object obj = clazz.getDeclaredConstructor().newInstance();
 				
 				Unit temp = (Unit) obj;
-				int hp = ran.nextInt(100) + 100;
-				int pow = ran.nextInt(10) + 10;
+				int hp = ran.nextInt(100) + 200;
+				int pow = ran.nextInt(10) + 20;
 				
 				temp.init(hp, pow);
 				unit_List.add(temp);
