@@ -72,7 +72,6 @@ public class StageBattle extends Stage {
 		if(sel == ATTACK) {
 			while(true) {
 				int idx = ran.nextInt(unitList.size());
-				
 				Unit unit = unitList.get(idx);
 				if(unit.getHp() > 0) {
 					play.attack(unit);
@@ -182,7 +181,12 @@ public class StageBattle extends Stage {
 				}
 			}
 			check();
-			if(playerDie <= 0 || unitDie <= 0) {
+			if(playerDie <= 0) {
+				System.out.println("😞STAGE FAIL😞");
+				break;
+			}
+			
+			if(unitDie <= 0) {
 				System.out.println("🎉STAGE CLEAR🎉");
 				break;
 			}
