@@ -6,7 +6,6 @@ public class Unit {
 	public int power;
 	public String name;
 	public Skill skill;
-	public boolean live = true;
 	public boolean stun;
 	
 	public Unit() {
@@ -46,7 +45,13 @@ public class Unit {
 	public int getPower() {
 		return this.power;
 	}
+	public boolean getStun() {
+		return this.stun;
+	}
 	
+	public void setStun(boolean stun) {
+		this.stun = stun;
+	}
 	public void setHp(int hp) {
 		this.hp = hp;
 	}
