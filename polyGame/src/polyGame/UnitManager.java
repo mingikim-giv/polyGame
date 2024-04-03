@@ -16,7 +16,7 @@ public class UnitManager {
 	
 	public UnitManager() {
 		play_List.add(new Play("팔라딘", 500, 40));
-		play_List.add(new Play("나이트로드", 300, 70));
+		play_List.add(new Play("나이트로드", 300, 60));
 		play_List.add(new Play("비숍", 400, 20));
 	}
 	
