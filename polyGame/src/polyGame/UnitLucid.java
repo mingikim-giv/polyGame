@@ -6,7 +6,7 @@ public class UnitLucid extends Unit {
 		name = "루시드";
 	}
 	
-	public void skill(Unit unit) {
+	public void skill(Play unit) {
 		String name = "루시드의 축복🎆";
 		System.out.printf("%s가 %s공격 시전\n", this.name, name);
 		System.out.printf("%s는 루시드의 공격력만큼 한 몬스터 회복💉\n", name);
