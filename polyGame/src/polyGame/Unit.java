@@ -58,11 +58,11 @@ public class Unit {
 	
 	public void attack(Unit target) {
 		target.hp -= power;
-		System.out.printf("[%s]가 [%s]에게 %d만큼 공격!\n", name, target.name, power);
+		System.out.printf("[%s](이)가[%s]에게 %d만큼 공격!\n", name, target.name, power);
 		
 		if(target.hp <= 0) {
-			System.out.printf("[%s]를 처치했다!\n", target.name);
 			target.hp = 0;
+			System.out.printf("[%s]를 처치했다!\n", target.name);
 		}
 	}
 	
