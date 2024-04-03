@@ -21,10 +21,10 @@ public class Play extends Unit {
 	private void paladinSkill(Unit unit) {
 		String name = "세이크리드 바스티온✝️";
 		System.out.printf("[스킬]%s님 %s시전\n", this.name, name);
-		System.out.printf("[스킬 정보]%s으로 공격 시 %s의 2배로 공격 2분의1 확률로 기절\n", name, this.name);
+		System.out.printf("[스킬 정보]%s으로 공격 시 %s의 2배로 공격 2분의1 확률로 기절\n", name, this.power);
 		
 		unit.setHp(unit.getHp() - this.power*2);
-		if(unit.hp <= 0) {
+		if(unit.getHp() <= 0) {
 			unit.setHp(0);
 			System.out.printf("%s 사망\n", unit.getName());
 		}
@@ -49,7 +49,7 @@ public class Play extends Unit {
 	private void nightLordSkill(Unit unit) {
 		String name = "생사여탈";
 		System.out.printf("[스킬]%s님 %s시전\n", this.name, name);
-		System.out.printf("[스킬 정보]%s으로 공격 시 %s의 3배 공격\n", name, this.name);
+		System.out.printf("[스킬 정보]%s으로 공격 시 %s의 3배 공격\n", name, this.power);
 		
 		unit.setHp(unit.getHp() - this.power*3);
 		if(unit.hp <= 0) {
@@ -70,27 +70,23 @@ public class Play extends Unit {
 	private void bishopSkill() {
 		String name = "홀리 어드밴트💉";
 		System.out.printf("[스킬]%s님 %s시전\n", this.name, name);
-		
 		for(int i = 0; i < UnitManager.instance.play_List.size(); i ++) {
 			Play play = UnitManager.instance.play_List.get(i);
-			int heal = play.getHp()*50;
+			
+			int heal = this.power;
 			
 			if(play.getHp() == 0) {
 				return;
 			}
 			
-			if(play.getHp()+heal > play.getMaxHp()) {
-				heal = play.getMaxHp() - play.getHp();
-			}
-			
 			play.setHp(play.getHp() + heal);
-			System.out.printf("%s(이)가 %d 회복 중..❤️‍🩹\n", play.getName(), heal);
-		}
-		
-		try {
-			Thread.sleep(1000);
-		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.printf("%s(이)가 %d회복 중..❤️‍🩹\n", play.getName(), heal);
+			
+			try {
+				Thread.sleep(1000);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }
