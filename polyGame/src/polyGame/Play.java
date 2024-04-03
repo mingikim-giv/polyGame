@@ -21,14 +21,15 @@ public class Play extends Unit {
 	private void paladinSkill(Unit unit) {
 		String name = "세이크리드 바스티온✝️";
 		System.out.printf("[스킬]%s님 %s시전\n", this.getName(), name);
-		System.out.printf("[스킬 정보]%s으로 공격 시 %s의 2배로 공격 2분의1 확률로 기절\n", name, this.getPower());
-
-		unit.setHp(unit.getHp() - this.getPower() * 2);
+		System.out.printf("[스킬 정보]%s으로 공격 시 %s의 2배로 공격 2분의1 확률로 스턴\n", name, this.getPower());
+		
+		
+		unit.setHp(this.getPower() * -2);
 		if (unit.getHp() <= 0) {
 			unit.setHp(0);
 			System.out.printf("%s 사망\n", unit.getName());
 		}
-
+		
 		int stun = GameManager.ran.nextInt(10) + 1;
 		if (stun > 5) {
 			System.out.printf("%s님의 %s명중! %s💤\n", this.getName(), name, unit.getName());
@@ -50,7 +51,7 @@ public class Play extends Unit {
 		System.out.printf("[스킬]%s님 %s시전\n", this.getName(), name);
 		System.out.printf("[스킬 정보]%s으로 공격 시 %s의 3배 공격\n", name, this.getPower());
 
-		unit.setHp(unit.getHp() - this.getPower() * 3);
+		unit.setHp(this.getPower() * -3);
 		if (unit.getHp() <= 0) {
 			unit.setHp(0);
 			System.out.printf("%s 사망\n", unit.getName());
