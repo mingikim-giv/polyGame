@@ -14,9 +14,9 @@ public class UnitManager {
 	private String unit[] = {"UnitLucid", "UnitSeren", "UnitDragon"};
 	
 	public UnitManager() {
-		play_List.add(new Play("팔라딘", 700, 40));
-		play_List.add(new Play("나이트로드", 300, 100));
-		play_List.add(new Play("비숍", 500, 30));
+		play_List.add(new Play("팔라딘", 500, 40));
+		play_List.add(new Play("나이트로드", 300, 70));
+		play_List.add(new Play("비숍", 400, 20));
 	}
 	
 	public void unitRanSet(int size) {
