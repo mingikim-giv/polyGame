@@ -13,12 +13,11 @@ public class Unit {
 		
 	}
 	
-	public Unit(String name, int maxHp, int power, Skill skill) {
+	public Unit(String name, int maxHp, int power) {
 		this.name = name;
 		this.maxHp = maxHp;
 		this.hp = maxHp;
 		this.power = power;
-		this.skill = skill;
 		this.stun = false;
 	}
 	
@@ -33,6 +32,19 @@ public class Unit {
 		this.maxHp = maxHp;
 		this.hp = maxHp;
 		this.power = power;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	public int getMaxHp() {
+		return this.maxHp;
+	}
+	public int getHp() {
+		return this.hp;
+	}
+	public int getPower() {
+		return this.power;
 	}
 	
 	public void attack(Unit target) {
