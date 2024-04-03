@@ -14,13 +14,9 @@ public class UnitManager {
 	private String unit[] = {"UnitLucid", "UnitSeren", "UnitDragon"};
 	
 	public UnitManager() {
-		play_List.add(Paladin.instance.add());
-		play_List.add(NightLord.instance.add());
-		play_List.add(Bishop.instance.add());
-		
-		unit_List.add(UnitLucid.instance.add());
-		unit_List.add(UnitDragon.instance.add());
-		unit_List.add(UnitSeren.instance.add());
+		play_List.add(new Play("팔라딘", 700, 40));
+		play_List.add(new Play("나이트로드", 300, 100));
+		play_List.add(new Play("비숍", 500, 30));
 	}
 	
 	public void unitRanSet(int size) {
@@ -31,6 +27,10 @@ public class UnitManager {
 				Object obj = clazz.getDeclaredConstructor().newInstance();
 				
 				Unit temp = (Unit) obj;
+				int hp = ran.nextInt(100) + 100;
+				int pow = ran.nextInt(10) + 10;
+				
+				temp.init(hp, pow);
 				unit_List.add(temp);
 			} catch (Exception e) {
 				e.printStackTrace();
