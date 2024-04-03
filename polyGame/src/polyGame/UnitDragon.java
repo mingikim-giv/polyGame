@@ -8,26 +8,16 @@ public class UnitDragon extends Unit {
 	
 	public void skill(Unit unit) {
 		String name = "브레스🔥";
-		System.out.printf("%s님 %s시전\n", this.name, name);
-		System.out.printf("%s는 몬스터가 일반 공격 후 50%확률로 1턴 기절\n", name);
+		System.out.printf("[스킬]%s님 %s시전\n", this.name, name);
+		System.out.printf("[스킬 정보]%s으로 공격 시 %s의 2배 공격\n", name, this.power);
 		
-		unit.setHp(this.power);
-		
+		unit.setHp(unit.getHp() - this.power*2);
 		if(unit.getHp() <= 0) {
 			unit.setHp(0);
 			System.out.printf("%s 사망\n", unit.getName());
 		}
 		
-		int stun = GameManager.ran.nextInt(2);
-		if(stun == 1) {
-			System.out.printf("브레스🔥 명중! %s💤\n", unit.getName());
-			unit.stun = true;
-		}
-		else {
-			System.out.println("아무런 효과가 없었다🛡️");
-		}
-		
-		System.out.printf("%s가 %s공격으로 %s[HP:%d]\n", this.name, name, unit.getName(), unit.getHp());
+		System.out.printf("%s가 %s시전 %s[HP:%d]\n", this.name, name, unit.getName(), unit.getHp());
 		
 		try {
 			Thread.sleep(1000);
