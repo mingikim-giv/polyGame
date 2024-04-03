@@ -30,7 +30,7 @@ public class StageBattle extends Stage {
 	// init
 	public void init() {
 		unitManager.unit_List.clear();
-		unitManager.unitRanSet(4);
+		unitManager.unitRanSet(3);
 		
 		playList = null;
 		playList = unitManager.play_List;
