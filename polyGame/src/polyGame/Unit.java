@@ -1,35 +1,34 @@
 package polyGame;
 
 public class Unit {
-	public int hp;
-	public int maxHp;
-	public int power;
-	public String name;
-	public Skill skill;
-	public boolean stun;
+	private int hp;
+	private int maxHp;
+	private int power;
+	private String name;
+	private boolean stun;
 	
 	public Unit() {
 		
 	}
 	
-	public Unit(String name, int maxHp, int power) {
+	public Unit(String name, int hp, int power) {
 		this.name = name;
-		this.maxHp = maxHp;
-		this.hp = maxHp;
+		this.maxHp = hp;
+		this.hp = hp;
 		this.power = power;
 		this.stun = false;
 	}
 	
-	public void init(int maxHp, int power) {
-		this.maxHp = maxHp;
-		this.hp = maxHp;
+	public void init(int hp, int power) {
+		this.maxHp = hp;
+		this.hp = hp;
 		this.power = power;
 	}
 	
-	public void init(String name, int maxHp, int power) {
+	public void init(String name, int hp, int power) {
 		this.name = name;
-		this.maxHp = maxHp;
-		this.hp = maxHp;
+		this.maxHp = hp;
+		this.hp = hp;
 		this.power = power;
 	}
 	
@@ -49,6 +48,9 @@ public class Unit {
 		return this.stun;
 	}
 	
+	public void setName(String name) {
+		this.name = name;
+	}
 	public void setStun(boolean stun) {
 		this.stun = stun;
 	}
