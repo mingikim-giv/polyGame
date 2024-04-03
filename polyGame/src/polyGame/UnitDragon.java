@@ -6,7 +6,7 @@ public class UnitDragon extends Unit {
 		name = "혼테일";
 	}
 	
-	public void skill(Play unit) {
+	public void skill(Unit unit) {
 		String name = "브레스🔥";
 		System.out.printf("[스킬]%s님 %s시전\n", this.name, name);
 		System.out.printf("[스킬 정보]%s으로 공격 시 %s의 2배 공격\n", name, this.power);
