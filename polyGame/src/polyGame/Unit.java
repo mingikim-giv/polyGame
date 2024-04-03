@@ -54,10 +54,11 @@ public class Unit {
 	public void setStun(boolean stun) {
 		this.stun = stun;
 	}
+
 	public void setHp(int hp) {
 		this.hp += hp;
-		if(this.hp > maxHp) {
-			this.hp = maxHp;
+		if(this.hp < 0) {
+			this.hp = 0;
 		}
 	}
 	
