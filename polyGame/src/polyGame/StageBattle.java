@@ -97,17 +97,41 @@ public class StageBattle extends Stage {
 	public void unitAttack(int index) {
 		Unit unit = unitList.get(index);
 		
+		if(unit.getStun()) {
+			return;
+		}
+		
 		if(unit.hp <= 0) {
 			return;
 		}
 		
 		while(true) {
 			int idx = ran.nextInt(playList.size());
+			int ranAttack = ran.nextInt(3);
+			Play play = playList.get(idx);
 			
-			Unit play = playList.get(idx);
-			if(play.hp > 0) {
-				unit.attack(play);
-				break;
+			if(ranAttack != 0) {
+				if(play.hp > 0) {
+					unit.attack(play);
+					break;
+				}
+			}
+			else {
+				if(unit instanceof UnitLucid) {
+					UnitLucid lucid = (UnitLucid)unit;
+					lucid.skill(play);
+					break;
+				}
+				else if(unit instanceof UnitDragon) {
+					UnitDragon dragon = (UnitDragon)unit;
+					dragon.skill(play);
+					break;
+				}
+				else if(unit instanceof UnitSeren) {
+					UnitSeren seren = (UnitSeren)unit;
+					seren.skill(play);
+					break;
+				}
 			}
 		}
 	}
