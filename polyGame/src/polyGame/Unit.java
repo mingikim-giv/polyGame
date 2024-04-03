@@ -55,12 +55,15 @@ public class Unit {
 		this.stun = stun;
 	}
 	public void setHp(int hp) {
-		this.hp = hp;
+		this.hp += hp;
+		if(this.hp > maxHp) {
+			this.hp = maxHp;
+		}
 	}
 	
 	public void attack(Unit target) {
 		target.hp -= power;
-		System.out.printf("[%s](이)가[%s]에게 %d만큼 공격!\n", name, target.name, power);
+		System.out.printf("[%s](이)가[%s]에게 %d만큼 공격!\n", this.name, target.name, this.power);
 		
 		if(target.hp <= 0) {
 			target.hp = 0;
@@ -69,6 +72,6 @@ public class Unit {
 	}
 	
 	public void printData() {
-		System.out.printf("[%s][%d/%d][%d]\n", name, hp, maxHp, power);
+		System.out.printf("[%s][%d/%d][%d]\n", this.name, this.hp, this.maxHp, this.power);
 	}
 }
