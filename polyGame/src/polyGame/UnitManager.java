@@ -5,7 +5,7 @@ import java.util.Vector;
 
 public class UnitManager {
 	public Random ran = new Random();
-	public static UnitManager instance = new UnitManager();
+	private static UnitManager instance = new UnitManager();
 	
 	public Vector<Play> play_List = new Vector<>();
 	public Vector<Unit> unit_List = new Vector<>();
@@ -13,10 +13,19 @@ public class UnitManager {
 	private String path = "polyGame.";
 	private String unit[] = {"UnitLucid", "UnitSeren", "UnitDragon"};
 	
+	
 	public UnitManager() {
 		play_List.add(new Play("팔라딘", 500, 40));
 		play_List.add(new Play("나이트로드", 300, 70));
 		play_List.add(new Play("비숍", 400, 20));
+	}
+	
+	public static UnitManager getInstance() {
+		return instance;
+	}
+	
+	public Vector<Play> getPlayers(){
+		return this.play_List;
 	}
 	
 	public void unitRanSet(int size) {
